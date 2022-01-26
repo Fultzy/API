@@ -77,7 +77,7 @@ Testing includes Services
 
 ### FetchingService is used for:
 - Handling fetch request to other APIs
-- Creates URI for fetch depending on request params
+- Creating URI for fetch depending on request params
 - Making multiple query requests to the same host
 
 Note: does not make parallel requests
