@@ -25,10 +25,6 @@ group :development do
   gem 'listen', '~> 3.3'
   # Provides a better error page for Rails
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
-  # Guard is a command line tool to easily handle events on files
-  gem 'guard', '~> 2.18'
-  # LiveReload automatically reloads your browser
-  gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
