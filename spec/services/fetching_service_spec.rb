@@ -33,7 +33,7 @@ RSpec.describe FetchingService do
       expect(@service.uri.path).to eq('/assessment/blog/posts')
     end
   end
-
+  
 
   describe '#fetch' do
     it 'attempts to fetch but returns an error response' do

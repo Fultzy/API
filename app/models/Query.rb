@@ -13,9 +13,10 @@ class Query
     # there not being errors in the query; this function returns #
     # a boolean after potentailly setting an error status.       #
 
-# note: if this seems like im rebuilding rail's StrongParams it's bc i am.
+# NOTE: if this seems like im rebuilding rail's StrongParams it's bc i am.
 # I was having issues with the ActionController::Parameters and understanding
-# how to validate & default query_string params with that structure.
+# how to validate & default query_string params with that structure. Since
+# we're not using a database in this application, I did this in the model.
     def validate_params
       allowed_params
 
@@ -49,11 +50,11 @@ class Query
   private
 
   #### Request Params ####
-  # Query params are required to be varified against this permitted hash: #
+  # Query params are required to be verified against this permitted hash: #
   # in this hash as an example: a valid query for :posts requires atleast #
-  # one tag parameter and action parameter. subsequent allowed params     #
-  # have a :default value and an array of :valid values. this hash can be #
-  # added to to incude other topics such as :users, :blogs or :comments   #
+  # one tag parameter. subsequent allowed params have a :default value    #
+  # and an array of :valid values. this hash can be added to to include   #
+  # other topics such as :users, :blogs or :comments                      #
   def permitted
     { :posts => {
         :tags => :required,

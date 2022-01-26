@@ -13,8 +13,8 @@ class JsonService
 
   def package
     merge_jsons
-    sortBy
     @storage = []
+    sortBy
   end
 
 
