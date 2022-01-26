@@ -30,11 +30,11 @@ Ruby: v3.0.1
 Rails: v6.1.4
 
 #### Production Dependencies:
-	- sqlite3 ~> 1.4
+  - sqlite3 ~> 1.4
   - puma ~> 5.0
 
 #### Dev/Testing Dependencies:
-	- Better_Errors ~> 2.9
+  - Better_Errors ~> 2.9
   - Rspec-rails ~> 5.0
 
 ## Configuration
