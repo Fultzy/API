@@ -28,7 +28,6 @@ class FetchingService
   def path(obj) # returns uri depending on requested object
     case obj
     when :posts then URI('https://api.hatchways.io/assessment/blog/posts')
-    when :test then URI('https://localhost:3000/api/test')
     end
   end
 end

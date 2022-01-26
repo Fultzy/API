@@ -15,13 +15,12 @@ class JsonService
     merge_jsons
     sortBy
     @storage = []
-    @json
   end
 
 
   def sortBy     # sorts and or flips array inside hash
     unless @json.empty?
-      @json[@target].sort_by! { |e| e[@request[:sortBy].to_sym] }
+      @json[@target].sort_by! { |elm| elm[@request[:sortBy]] }
       @request[:direction] == 'desc' ? @json[@target].reverse! : @json
       return @json
     end

@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe FetchingService do
   before(:all) do
     @service = FetchingService.new({
-      target:'test',
+      target:'posts',
       query:{ kind: 'apple,banana,orange&sortBy=sugarContent' }
     })
   end
@@ -26,24 +26,18 @@ RSpec.describe FetchingService do
 
   describe 'the generated URI' do
     it 'points towards the targeted host' do
-      expect(@service.uri.host).to eq('localhost')
+      expect(@service.uri.host).to eq('api.hatchways.io')
     end
 
     it 'points towards the targeted path' do
-      expect(@service.uri.path).to eq('/api/test')
+      expect(@service.uri.path).to eq('/assessment/blog/posts')
     end
   end
 
 
   describe '#fetch' do
-    it 'attempts to fetch from an internal url but fails' do
-      expect { @service.fetch }.to raise_error{Errno::ECONNREFUSED}
-    end
-
-    xit "encodes a query string for this failed fetch's URI" do
-      expect(@service.uri.query).to eq(
-        'kind=apple,banana,orange&sortBy=sugarContent'
-      )
+    it 'attempts to fetch but returns an error response' do
+      expect(@service.fetch).to eq({"error"=>"The tag parameter is required"})
     end
   end
 

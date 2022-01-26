@@ -35,12 +35,12 @@ RSpec.describe JsonService do
 
     it 'merges an array of hashes into a single hash @json' do
       @service.storage.push({ :fruit => [
-        { kind:'apple', sugarContent:19, size:4 },
-        { kind:'orange', sugarContent:9, size:5 }
+        { 'kind'=>'apple', 'sugarContent'=>19, 'size'=>4 },
+        { 'kind'=>'orange', 'sugarContent'=>9, 'size'=>5 }
         ]})
       @service.storage.push({ :fruit => [
-        { kind:'banana', sugarContent:14, size:7 },
-        { kind:'pineapple', sugarContent:86, size:6 }
+        { 'kind'=>'banana', 'sugarContent'=>14, 'size'=>7 },
+        { 'kind'=>'pineapple', 'sugarContent'=>86, 'size'=>6 }
         ]})
 
       @service.merge_jsons
@@ -49,8 +49,8 @@ RSpec.describe JsonService do
 
     it 'can merge more hashes if added after original merge to @json' do
       @service.storage.push({ :fruit => [
-        { kind:'plum', sugarContent:7, size:2 },
-        { kind:'peach', sugarContent:13, size:3 }
+        { 'kind'=>'plum', 'sugarContent'=>7, 'size'=>2 },
+        { 'kind'=>'peach', 'sugarContent'=>13, 'size'=>3 }
         ]})
         @service.merge_jsons
       expect(@service.json[:fruit].count).to eq(6)
@@ -64,12 +64,12 @@ RSpec.describe JsonService do
       @service.sortBy
       expect(@service.json).to eq(
         { :fruit => [
-          { kind:'pineapple', sugarContent:86, size:6 },
-          { kind:'apple', sugarContent:19, size:4 },
-          { kind:'banana', sugarContent:14, size:7 },
-          { kind:'peach', sugarContent:13, size:3 },
-          { kind:'orange', sugarContent:9, size:5 },
-          { kind:'plum', sugarContent:7, size:2 }
+          { 'kind'=>'pineapple', 'sugarContent'=>86, 'size'=>6 },
+          { 'kind'=>'apple', 'sugarContent'=>19, 'size'=>4 },
+          { 'kind'=>'banana', 'sugarContent'=>14, 'size'=>7 },
+          { 'kind'=>'peach', 'sugarContent'=>13, 'size'=>3 },
+          { 'kind'=>'orange', 'sugarContent'=>9, 'size'=>5 },
+          { 'kind'=>'plum', 'sugarContent'=>7, 'size'=>2 }
         ]})
     end
 
@@ -80,12 +80,12 @@ RSpec.describe JsonService do
 
       expect(@service.json).to eq(
         { :fruit => [
-          { kind:'plum', sugarContent:7, size:2 },
-          { kind:'peach', sugarContent:13, size:3 },
-          { kind:'apple', sugarContent:19, size:4 },
-          { kind:'orange', sugarContent:9, size:5 },
-          { kind:'pineapple', sugarContent:86, size:6 },
-          { kind:'banana', sugarContent:14, size:7 }
+          { 'kind'=>'plum', 'sugarContent'=>7, 'size'=>2 },
+          { 'kind'=>'peach', 'sugarContent'=>13, 'size'=>3 },
+          { 'kind'=>'apple', 'sugarContent'=>19, 'size'=>4 },
+          { 'kind'=>'orange', 'sugarContent'=>9, 'size'=>5 },
+          { 'kind'=>'pineapple', 'sugarContent'=>86, 'size'=>6 },
+          { 'kind'=>'banana', 'sugarContent'=>14, 'size'=>7 }
         ]})
     end
   end
@@ -102,16 +102,16 @@ RSpec.describe JsonService do
     it 'empty hash is included with "non-empties" returns single hash' do
       @service.json = {}
       @service.storage = [{ fruit:[] }, { fruit:[
-        { kind:'peach', sugarContent:13, size:3 },
-        { kind:'apple', sugarContent:19, size:4 },
-        { kind:'orange', sugarContent:9, size:5 }
+        { 'kind'=>'peach', 'sugarContent'=>13, 'size'=>3 },
+        { 'kind'=>'apple', 'sugarContent'=>19, 'size'=>4 },
+        { 'kind'=>'orange', 'sugarContent'=>9, 'size'=>5 }
       ]}]
 
       @service.package
       expect(@service.json).to eq({ fruit:[
-        { kind:'peach', sugarContent:13, size:3 },
-        { kind:'apple', sugarContent:19, size:4 },
-        { kind:'orange', sugarContent:9, size:5 }
+        { 'kind'=>'peach', 'sugarContent'=>13, 'size'=>3 },
+        { 'kind'=>'apple', 'sugarContent'=>19, 'size'=>4 },
+        { 'kind'=>'orange', 'sugarContent'=>9, 'size'=>5 }
       ]})
     end
 
