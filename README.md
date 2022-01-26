@@ -26,8 +26,8 @@ To run in development: `$ rails start`
 To run in production: `$ rails start -e production`
 
 ### Dependencies:
-Ruby: v3.0.1
-Rails: v6.1.4
+  - Ruby: v3.0.1
+  - Rails: v6.1.4
 
 #### Production Dependencies:
   - sqlite3 ~> 1.4
